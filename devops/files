@@ -1,0 +1,33 @@
+sans@DESKTOP-P1JS88F:/mnt/c/sans/work/code/ibm/project/thebridge$ export GOPATH=/mnt/c/sans/work/code/ibm/backend/go/home
+sans@DESKTOP-P1JS88F:/mnt/c/sans/work/code/ibm/project/thebridge$ export PATH=$PATH:$GOPATH/bin
+sans@DESKTOP-P1JS88F:/mnt/c/sans/work/code/ibm/project/thebridge$ cfssl gencert -initca certs/config/ca-csr.json | cfssljson -bare certs/ca
+2020/04/15 16:20:39 [INFO] generating a new CA key and certificate from CSR
+2020/04/15 16:20:39 [INFO] generate received request
+2020/04/15 16:20:39 [INFO] received CSR
+2020/04/15 16:20:39 [INFO] generating key: rsa-2048
+2020/04/15 16:20:39 [INFO] encoded CSR
+2020/04/15 16:20:39 [INFO] signed certificate with serial number 665583076142146741612160524169121381349879391142
+
+
+cfssl gencert -ca=certs/ca.pem -ca-key=certs/ca-key.pem -config=certs/config/ca-config.json -profile=default certs/config/consul-csr.json | cfssljson -bare certs/consul
+
+2020/04/15 16:25:31 [INFO] generate received request
+2020/04/15 16:25:31 [INFO] received CSR
+2020/04/15 16:25:31 [INFO] generating key: rsa-2048
+2020/04/15 16:25:32 [INFO] encoded CSR
+2020/04/15 16:25:32 [INFO] signed certificate with serial number 1422231684880281782693583354073455523056110411
+
+
+cfssl gencert \
+    -ca=certs/ca.pem \
+    -ca-key=certs/ca-key.pem \
+    -config=certs/config/ca-config.json \
+    -profile=default \
+    certs/config/vault-csr.json | cfssljson -bare certs/vault
+	
+
+2020/04/15 16:25:50 [INFO] generate received request
+2020/04/15 16:25:50 [INFO] received CSR
+2020/04/15 16:25:50 [INFO] generating key: rsa-2048
+2020/04/15 16:25:50 [INFO] encoded CSR
+2020/04/15 16:25:50 [INFO] signed certificate with serial number 181792564557159243123126288082384655485389373731
